@@ -9,8 +9,6 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="alternate icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -1178,7 +1176,7 @@
   <div class="floating-bytes" id="floating-bytes-container"></div>
   
   <!-- Matrix Rain -->
-  <div class="matrix-rain" id="matrix-container"></div>
+  <div class="matrix-rain" id="matrix-rain"></div>
   
   <!-- Navigation -->
   <nav class="cyber-nav">
@@ -1473,7 +1471,7 @@
     
     // Interactive Matrix Rain Effect (simplified)
     function createMatrixRain() {
-      const container = document.getElementById('matrix-container');
+      const container = document.getElementById('matrix-rain');
       const chars = '01';
       const columns = Math.floor(window.innerWidth / 25);
       window.matrixColumns = [];
@@ -1734,12 +1732,12 @@
     });
     
     // Cyber navigation hide/show
-    let lastScrollY = window.scrollY;
+    let navLastScrollY = window.scrollY;
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('.cyber-nav');
       const currentScrollY = window.scrollY;
       
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > navLastScrollY && currentScrollY > 100) {
         nav.style.transform = 'translateY(-100%)';
         nav.style.opacity = '0.8';
       } else {
@@ -1747,7 +1745,7 @@
         nav.style.opacity = '1';
       }
       
-      lastScrollY = currentScrollY;
+      navLastScrollY = currentScrollY;
     });
     
     // Random glitch triggers
