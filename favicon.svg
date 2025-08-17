@@ -1,27 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Green border/frame -->
-  <rect x="32" y="64" width="448" height="384" fill="none" stroke="#2d5a2d" stroke-width="16" rx="8"/>
+  <defs>
+    <!-- Neon glow filters -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="cyanGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
   
-  <!-- Binary digits -->
-  <text x="120" y="160" font-family="monospace" font-size="72" font-weight="bold" fill="#2d5a2d">1</text>
-  <text x="200" y="160" font-family="monospace" font-size="72" font-weight="bold" fill="#2d5a2d">0</text>
-  <text x="280" y="160" font-family="monospace" font-size="72" font-weight="bold" fill="#2d5a2d">1</text>
+  <!-- Dark background -->
+  <rect width="512" height="512" fill="#0a0a0a"/>
   
-  <!-- Circuit lines -->
-  <circle cx="120" cy="240" r="8" fill="#2d5a2d"/>
-  <line x1="128" y1="240" x2="240" y2="240" stroke="#2d5a2d" stroke-width="4"/>
-  <line x1="240" y1="240" x2="280" y2="280" stroke="#2d5a2d" stroke-width="4"/>
-  <line x1="280" y1="280" x2="320" y2="280" stroke="#2d5a2d" stroke-width="4"/>
+  <!-- Neon cyan border/frame -->
+  <rect x="32" y="64" width="448" height="384" fill="none" stroke="#00ffff" stroke-width="8" rx="8" filter="url(#cyanGlow)"/>
   
-  <!-- Blue connection point -->
-  <circle cx="320" cy="280" r="12" fill="#1e90ff"/>
-  <circle cx="320" cy="280" r="6" fill="white"/>
+  <!-- Neon binary digits -->
+  <text x="120" y="160" font-family="monospace" font-size="72" font-weight="bold" fill="#00ffff" filter="url(#neonGlow)">1</text>
+  <text x="200" y="160" font-family="monospace" font-size="72" font-weight="bold" fill="#00ffff" filter="url(#neonGlow)">0</text>
+  <text x="280" y="160" font-family="monospace" font-size="72" font-weight="bold" fill="#00ffff" filter="url(#neonGlow)">1</text>
   
-  <!-- Bottom binary -->
-  <text x="120" y="360" font-family="monospace" font-size="72" font-weight="bold" fill="#2d5a2d">0</text>
-  <text x="200" y="360" font-family="monospace" font-size="72" font-weight="bold" fill="#2d5a2d">1</text>
+  <!-- Neon circuit lines -->
+  <circle cx="120" cy="240" r="8" fill="#00ffff" filter="url(#neonGlow)"/>
+  <line x1="128" y1="240" x2="240" y2="240" stroke="#00ffff" stroke-width="4" filter="url(#neonGlow)"/>
+  <line x1="240" y1="240" x2="280" y2="280" stroke="#00ffff" stroke-width="4" filter="url(#neonGlow)"/>
+  <line x1="280" y1="280" x2="320" y2="280" stroke="#00ffff" stroke-width="4" filter="url(#neonGlow)"/>
   
-  <!-- nullbytes text -->
-  <text x="80" y="480" font-family="Arial, sans-serif" font-size="48" font-weight="normal" fill="#2d5a2d">null</text>
-  <text x="200" y="480" font-family="Arial, sans-serif" font-size="48" font-weight="normal" fill="#1e90ff">bytes</text>
+  <!-- Neon pink connection point -->
+  <circle cx="320" cy="280" r="12" fill="#ff00ff" filter="url(#neonGlow)"/>
+  <circle cx="320" cy="280" r="6" fill="#ffffff"/>
+  
+  <!-- Bottom neon binary -->
+  <text x="120" y="360" font-family="monospace" font-size="72" font-weight="bold" fill="#00ffff" filter="url(#neonGlow)">0</text>
+  <text x="200" y="360" font-family="monospace" font-size="72" font-weight="bold" fill="#00ffff" filter="url(#neonGlow)">1</text>
+  
+  <!-- Neon nullbytes text -->
+  <text x="80" y="480" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#00ffff" filter="url(#neonGlow)">null</text>
+  <text x="200" y="480" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ff00ff" filter="url(#neonGlow)">bytes</text>
 </svg>
