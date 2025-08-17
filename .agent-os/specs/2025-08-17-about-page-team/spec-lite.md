@@ -1,0 +1,3 @@
+# Spec Summary (Lite)
+
+Create a professional About page for the Nullbytes website showcasing team members with cyberpunk-styled layouts and matrix-effect imagery. The page starts with founder Ravi Sriram's detailed bio following a professional template format, then provides an expandable grid layout for additional team members. All profile images will be processed with matrix-style visual effects to match the site's cyberpunk aesthetic while maintaining professional credibility.

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Nullbytes - Meet our team of AI development specialists led by founder Ravi Kumar Sriram. Expert cybersecurity, cloud security, and DevSecOps professionals building the future one byte at a time.">
+  <meta name="keywords" content="Nullbytes team, Ravi Kumar Sriram, cybersecurity, cloud security, SIEM, DevSecOps, AI development">
+  <meta name="author" content="Nullbytes Collective">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nullbytes.app/about">
+  <meta property="og:title" content="About Nullbytes - AI Development Team">
+  <meta property="og:description" content="Meet our team of AI development specialists led by founder Ravi Kumar Sriram. Expert cybersecurity and DevSecOps professionals.">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://nullbytes.app/about">
+  <meta property="twitter:title" content="About Nullbytes - AI Development Team">
+  <meta property="twitter:description" content="Meet our team of AI development specialists led by founder Ravi Kumar Sriram.">
+  
+  <title>About Nullbytes - AI Development Team | Cyber Matrix</title>
+  
+  <!-- External Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Cyberpunk Color Palette */
+    :root {
+      --cyber-neon-cyan: #00ffff;
+      --cyber-neon-pink: #ff00ff;
+      --cyber-neon-green: #39ff14;
+      --cyber-neon-blue: #0080ff;
+      --cyber-neon-purple: #bf00ff;
+      --cyber-bg: #0a0a0a;
+      --cyber-bg-secondary: #1a1a2e;
+      --cyber-accent: #16213e;
+      --cyber-text: #e0e0e0;
+      --cyber-text-dim: #a0a0a0;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: linear-gradient(135deg, var(--cyber-bg) 0%, var(--cyber-bg-secondary) 100%);
+      color: var(--cyber-text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    /* Navigation Styles */
+    .cyber-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--cyber-neon-cyan);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cyber-logo {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--cyber-neon-cyan);
+      text-decoration: none;
+      text-shadow: 0 0 10px var(--cyber-neon-cyan);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-link {
+      color: var(--cyber-text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--cyber-neon-cyan);
+      border-color: var(--cyber-neon-cyan);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+    
+    .nav-link.active {
+      color: var(--cyber-neon-pink);
+      border-color: var(--cyber-neon-pink);
+    }
+    
+    /* Main Content Styles */
+    main {
+      margin-top: 80px;
+      padding: 2rem 1rem;
+    }
+    
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .cyber-section-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 3rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--cyber-neon-cyan);
+      text-shadow: 0 0 20px var(--cyber-neon-cyan);
+      letter-spacing: 3px;
+    }
+    
+    .section-desc {
+      text-align: center;
+      font-size: 1.25rem;
+      color: var(--cyber-text-dim);
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Team Grid Styles */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    
+    @media (min-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* Team Member Card Styles */
+    .team-member-card {
+      background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.6) 100%);
+      border: 2px solid var(--cyber-neon-cyan);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .team-member-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+      border-color: var(--cyber-neon-pink);
+    }
+    
+    .founder-card {
+      grid-column: 1 / -1;
+      max-width: 800px;
+      margin: 0 auto;
+      border-color: var(--cyber-neon-pink);
+    }
+    
+    .member-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      border: 3px solid var(--cyber-neon-cyan);
+      padding: 3px;
+      background: linear-gradient(45deg, var(--cyber-neon-cyan), var(--cyber-neon-pink));
+    }
+    
+    .avatar-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyber-bg) 0%, var(--cyber-accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--cyber-neon-cyan);
+    }
+    
+    .member-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cyber-neon-cyan);
+      margin-bottom: 0.5rem;
+    }
+    
+    .member-title {
+      font-size: 1.1rem;
+      color: var(--cyber-neon-pink);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .member-bio {
+      color: var(--cyber-text);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .member-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-tag {
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid var(--cyber-neon-cyan);
+      color: var(--cyber-neon-cyan);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .member-contact {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .contact-link {
+      color: var(--cyber-neon-blue);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--cyber-neon-blue);
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-link:hover {
+      background: var(--cyber-neon-blue);
+      color: var(--cyber-bg);
+      box-shadow: 0 0 15px rgba(0, 128, 255, 0.5);
+    }
+    
+    /* Footer Styles */
+    footer {
+      background: var(--cyber-bg);
+      border-top: 2px solid var(--cyber-neon-cyan);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        gap: 1rem;
+      }
+      
+      .cyber-section-title {
+        font-size: 2rem;
+      }
+      
+      .team-member-card {
+        padding: 1.5rem;
+      }
+      
+      .member-avatar {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .member-contact {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="cyber-nav">
+      <div class="nav-container">
+        <a href="index.html" class="cyber-logo">nullbytes</a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="about-container">
+      <section class="team-section">
+        <h1 class="cyber-section-title">&gt;&gt;TEAM&nbsp;MATRIX&lt;&lt;</h1>
+        <p class="section-desc">Meet the architects of the digital frontier</p>
+        
+        <div class="team-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+          <!-- Founder Profile -->
+          <div class="team-member-card founder-card col-span-1 md:col-span-2 lg:col-span-3">
+            <div class="member-avatar">
+              <div class="avatar-placeholder">
+                👨‍💻
+              </div>
+            </div>
+            <h2 class="member-name">Ravi Kumar Sriram</h2>
+            <p class="member-title">Founder & Lead Security Architect</p>
+            <div class="member-bio">
+              <p>Security-first engineer with extensive experience in protecting enterprise networks and cloud infrastructure. Ravi specializes in building comprehensive security frameworks that combine traditional cybersecurity practices with modern DevSecOps security methodologies.</p>
+              <br>
+              <p>With expertise spanning Cloud Security, SIEM implementations, and advanced threat hunting, he leads Nullbytes in creating AI-powered solutions that revolutionize how organizations approach digital security and infrastructure management.</p>
+            </div>
+            <div class="member-skills">
+              <span class="skill-tag">Cloud Security</span>
+              <span class="skill-tag">SIEM</span>
+              <span class="skill-tag">Threat Hunting</span>
+              <span class="skill-tag">Azure Sentinel</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">DevSecOps</span>
+              <span class="skill-tag">Pentesting</span>
+              <span class="skill-tag">DAST/SAST</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Email Analysis</span>
+            </div>
+            <div class="member-contact">
+              <a href="https://www.linkedin.com/in/ravi-sriram/" class="contact-link" target="_blank">LinkedIn</a>
+              <a href="mailto:ravi@nullbytes.app" class="contact-link">Email</a>
+            </div>
+          </div>
+          
+          <!-- Additional Team Member Placeholders -->
+          <div class="team-member-card col-span-1">
+            <div class="member-avatar">
+              <div class="avatar-placeholder">
+                🔒
+              </div>
+            </div>
+            <h3 class="member-name">Team Member</h3>
+            <p class="member-title">Position Available</p>
+            <div class="member-bio">
+              <p>Join our growing team of AI development specialists. We're looking for passionate developers who share our vision of building the future one byte at a time.</p>
+            </div>
+            <div class="member-skills">
+              <span class="skill-tag">Your Skills Here</span>
+            </div>
+          </div>
+          
+          <div class="team-member-card col-span-1">
+            <div class="member-avatar">
+              <div class="avatar-placeholder">
+                🚀
+              </div>
+            </div>
+            <h3 class="member-name">Team Member</h3>
+            <p class="member-title">Position Available</p>
+            <div class="member-bio">
+              <p>Expand our collective expertise. Whether you're a frontend wizard, backend architect, or AI researcher, we have a place for exceptional talent.</p>
+            </div>
+            <div class="member-skills">
+              <span class="skill-tag">Innovation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 nullbytes // all_rights.reserved</p>
+      <p class="cyber-subtitle">Building the future one byte at a time</p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Simple hover animations with GSAP
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.team-member-card');
+      
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, {
+            duration: 0.3,
+            scale: 1.02,
+            rotationY: 2,
+            ease: "power2.out"
+          });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            duration: 0.3,
+            scale: 1,
+            rotationY: 0,
+            ease: "power2.out"
+          });
+        });
+      });
+      
+      // Animate cards on page load
+      gsap.fromTo('.team-member-card', 
+        {
+          opacity: 0,
+          y: 50
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out"
+        }
+      );
+    });
+  </script>
+</body>
+</html>
