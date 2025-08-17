@@ -84,18 +84,145 @@
     }
     
     .cyber-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo-hologram {
+      width: 60px;
+      height: 60px;
+      background: var(--cyber-bg);
+      border: 2px solid var(--cyber-neon-cyan);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px var(--cyber-neon-cyan);
+    }
+    
+    .logo-hologram::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 255, 255, 0.1),
+        transparent
+      );
+      animation: hologramScan 3s linear infinite;
+    }
+    
+    .logo-matrix {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    
+    .logo-bit {
+      background: var(--cyber-neon-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 8px;
+      height: 8px;
+      font-size: 6px;
+      font-weight: 900;
+      color: var(--cyber-bg);
+      animation: bitPulse 2s ease-in-out infinite;
+      font-family: 'Share Tech Mono', monospace;
+    }
+    
+    .logo-bit:nth-child(2) { animation-delay: 0.5s; }
+    .logo-bit:nth-child(3) { animation-delay: 1s; }
+    .logo-bit:nth-child(4) { animation-delay: 1.5s; }
+    
+    .logo-connector {
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      width: 20px;
+      height: 2px;
+      background: var(--cyber-neon-cyan);
+      transform: translateY(-50%);
+      box-shadow: 0 0 5px var(--cyber-neon-cyan);
+    }
+    
+    .logo-connector::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      background: var(--cyber-neon-cyan);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 8px var(--cyber-neon-cyan);
+    }
+    
+    .logo-text {
       font-family: 'Orbitron', monospace;
-      font-size: 1.5rem;
+      font-size: 28px;
       font-weight: 900;
       color: var(--cyber-neon-cyan);
-      text-decoration: none;
-      text-shadow: 0 0 10px var(--cyber-neon-cyan);
+      text-shadow: 0 0 20px var(--cyber-neon-cyan);
+    }
+    
+    .logo-text .cyber-accent {
+      color: var(--cyber-neon-blue);
+      text-shadow: 0 0 20px var(--cyber-neon-blue), 0 0 40px var(--cyber-neon-blue);
     }
     
     .nav-links {
       display: flex;
-      gap: 2rem;
-      list-style: none;
+      gap: 30px;
+    }
+    
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 10px;
+      background: transparent;
+      border: 2px solid var(--cyber-neon-cyan);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+      border-color: var(--cyber-neon-pink);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+    }
+    
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--cyber-neon-cyan);
+      margin: 3px 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px var(--cyber-neon-cyan);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      background: var(--cyber-neon-pink);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+      background: var(--cyber-neon-pink);
     }
     
     .nav-link {
@@ -291,11 +418,31 @@
     /* Responsive Design */
     @media (max-width: 768px) {
       .nav-container {
+        position: relative;
         padding: 1rem;
       }
       
       .nav-links {
-        gap: 1rem;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(10px);
+        border-top: 2px solid var(--cyber-neon-cyan);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
       }
       
       .cyber-section-title {
@@ -316,6 +463,17 @@
         align-items: center;
       }
     }
+    
+    /* Keyframe Animations */
+    @keyframes hologramScan {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    @keyframes bitPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
   </style>
 </head>
 <body>
@@ -323,13 +481,34 @@
   <header>
     <nav class="cyber-nav">
       <div class="nav-container">
-        <a href="index.html" class="cyber-logo">nullbytes</a>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="about.html" class="nav-link active">About</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+        <div class="cyber-logo">
+          <div class="logo-hologram">
+            <div class="logo-matrix">
+              <div class="logo-bit">1</div>
+              <div class="logo-bit">0</div>
+              <div class="logo-bit">0</div>
+              <div class="logo-bit">1</div>
+            </div>
+            <div class="logo-connector"></div>
+          </div>
+          <div class="logo-text">
+            null<span class="cyber-accent">bytes</span>
+          </div>
+        </div>
+        
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="about.html" class="nav-link active">About</a>
+          <a href="#blog" class="nav-link">Blog</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
   </header>
@@ -422,6 +601,39 @@
   <script>
     // Initialize Lucide icons
     lucide.createIcons();
+    
+    // Mobile Menu Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', function() {
+          // Toggle active class on button
+          mobileToggle.classList.toggle('active');
+          
+          // Toggle active class on nav links
+          navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinkElements = navLinks.querySelectorAll('.nav-link');
+        navLinkElements.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!mobileToggle.contains(event.target) && !navLinks.contains(event.target)) {
+            mobileToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+          }
+        });
+      }
+    });
     
     // Simple hover animations with GSAP
     document.addEventListener('DOMContentLoaded', () => {
