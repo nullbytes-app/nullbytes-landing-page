@@ -1,0 +1,29 @@
+{
+  "name": "nullbytes-landing-page",
+  "version": "1.0.0",
+  "description": "Cyberpunk-themed landing page for Nullbytes AI development collective",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest",
+    "serve": "npx http-server . -p 3000",
+    "dev": "npx live-server --port=3000"
+  },
+  "keywords": [
+    "nullbytes",
+    "cyberpunk",
+    "landing-page",
+    "ai",
+    "collective"
+  ],
+  "author": "Nullbytes Collective",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  }
+}
